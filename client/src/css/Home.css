@@ -1,0 +1,10 @@
+
+
+@media (width <= 768px) {
+.component-card{
+background-image: url("../assets/cardHomePage.png");
+} 
+.image-card{
+    visibility: hidden;
+}
+}
