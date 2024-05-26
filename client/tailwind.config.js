@@ -5,14 +5,15 @@ module.exports = {
       fontFamily: {
         display: ['Inter', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
-        fontFamily: ['Libre Baskerville', 'serif']
+        fancy: ['Libre Baskerville', 'serif']
       },
       extend: {
         fontSize: {
           14: '14px',
         },
         colors:{
-        
+          'base-blue':'#32BAF4'
+
 
         },
         backgroundColor: {
@@ -21,6 +22,7 @@ module.exports = {
           'secondary-dark-bg': '#33373E',
           'light-gray': '#F7F7F7',
           'half-transparent': 'rgba(0, 0, 0, 0.5)',
+          'base-blue':'#32BAF4'
         },
         borderWidth: {
           1: '1px',
