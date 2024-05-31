@@ -24,7 +24,7 @@ const Home = () => {
             <p className="text-[14px] font-libre-baskerville md:text-xl text-center mt-4">Shop Eco-Friendly, Save Water, Change the World</p>
             
             <div class="mt-2 flex items-center justify-center gap-x-6">
-            <a href="#" class="rounded-md text-center  bg-base-blue px-8 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+            <a href="#" class="rounded-md ext-center  bg-base-blue px-8 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
             </div>
             
           </div>
@@ -37,8 +37,9 @@ const Home = () => {
       </div>
       <AllCards ToggleScreen={ToggleScreen}/>
       </div>
-      ):<ShoppingPage page={page}/>}
+      ):<ShoppingPage page={page} ToggleScreen={ToggleScreen}/>}
     </div>
+    
     </>
 
   );

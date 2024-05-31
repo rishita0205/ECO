@@ -6,15 +6,15 @@ import { WaterConversation, InnovativeTouches, HygieneAndCare, TechnologySolutio
 const AllCards = ({ ToggleScreen }) => {
   return (
     <div className="mx-5 my-10">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         <div className="md:items-center p-6 hidden lg:flex md:flex-col">
           <h2 className="text-[40px] font-bold mb-6 text-base-blue">Category for you</h2>
         </div>
         <CategoryCard 
           imageSrc={WaterConversation}
-          altText="Water Conversation"
-          title="Water Conversation"
-          onClick={() => ToggleScreen("Water Conversation")}  // Pass a function reference
+          altText="Water Conservation"
+          title="Water Conservation"
+          onClick={() => ToggleScreen("Water Conservation")}  // Pass a function reference
         />
         <CategoryCard 
           imageSrc={TechnologySolutions}
