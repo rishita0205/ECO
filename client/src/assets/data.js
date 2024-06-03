@@ -47,3 +47,15 @@ export const categoryDescriptions = {
     "Hygiene and Care": "Promote comfort and confidence through hygienic environments.",
     "Innovative Touches": "Versatile solutions for a wide range of applications and diverse customer needs."
   };
+
+
+  export const dummyUser = {
+    _id: "64df3c064180b81adfe41d4b",
+    firstName: "Rishita",
+    lastName: "Maheshwari",
+    email: "maheshwaririshita7@gmail.com",
+    
+    verified: true,
+    token: "hZWFmZmU3NmMiLCJpYXQiOjE2OTIwMzY5",
+    
+};

@@ -4,5 +4,7 @@ import Profile from "./Profile";
 import Register from "./Register";
 import ResetPassword from "./ResetPassword";
 import Product from "./Product";
+import Cart from "./Cart";
 import WaterCalculator from './WaterCalculator'
-export{Home,Login,Product,ResetPassword,Profile,Register,WaterCalculator}
+
+export{Home,Login,Product,ResetPassword,Profile,Register,WaterCalculator,Cart}

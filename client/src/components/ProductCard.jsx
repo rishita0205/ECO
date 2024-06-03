@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const handleClick = () => {
     navigate(`/product/${product._id}`);
   };
-  const host="http://localhost:8080"
+  const host="https://server-eco.onrender.com"
   const imageUrl = `${host}/${product.image}`;
 
   return (

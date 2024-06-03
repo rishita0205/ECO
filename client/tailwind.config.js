@@ -17,6 +17,7 @@ module.exports = {
 
         },
         backgroundColor: {
+          'cream':'#FFEAD6',
           'main-bg': 'FFFFFF',
           'main-dark-bg': '#20232A',
           'secondary-dark-bg': '#33373E',

@@ -5,6 +5,9 @@ import cors from 'cors';
 import path from 'path'; 
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
+import cartRoutes from './routes/cartRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+
 dotenv.config();
 
 console.log('MongoDB URI:', process.env.MONGODB_URI);
@@ -26,8 +29,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 dbConnection();
 
  //routes
-import productRoutes from './routes/productRoutes.js';
 app.use('/products', productRoutes);
+
+app.use('/cart', cartRoutes);
     
 
 // Start the server

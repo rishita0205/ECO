@@ -3,10 +3,24 @@ import Navbar from '../components/Navbar';
 import cardHomePage from '../assets/cardHomePage.png';
 import '../css/Home.css'
 import AllCards from '../components/AllCards';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import ShoppingPage from '../components/ShoppingPage';
+import Deck from '../components/Deck'
+import Footer from '../components/Footer'
+import { filterProducts } from "../utils";
+import { ribbon } from '../assets';
 const Home = () => {
   const [page,changepage]=useState("Home");
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const data = await filterProducts();
+      setProducts(data);
+    };
+
+    getProducts();
+  }, []);
   function ToggleScreen(category) {
     changepage(category);
   }
@@ -24,7 +38,7 @@ const Home = () => {
             <p className="text-[14px] font-libre-baskerville md:text-xl text-center mt-4">Shop Eco-Friendly, Save Water, Change the World</p>
             
             <div class="mt-2 flex items-center justify-center gap-x-6">
-            <a href="#" class="rounded-md ext-center  bg-base-blue px-8 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+            <a href="/water-calculator" class="rounded-md ext-center  bg-base-blue px-8 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
             </div>
             
           </div>
@@ -38,6 +52,17 @@ const Home = () => {
       <AllCards ToggleScreen={ToggleScreen}/>
       </div>
       ):<ShoppingPage page={page} ToggleScreen={ToggleScreen}/>}
+      <div className=' h-auto bg-cream flex flex-col items-center'>
+      <h1 className='md:text-4xl text-2xl font-fancy mt-6'>Our Most Wanted Products</h1>
+      <div className='mr-4 ml-4'>
+      <Deck  products={products}/>
+      </div>
+      </div>
+      <div className="green-component w-full h-auto flex  flex-col items-center justify-center p-12 md:p-20 bg-cover">
+      <h1 className='text-base text-center font-fancy text-white md:text-3xl'>Shop with Purpose: Contribute to Water Conservation with Every Eco-Friendly Purchase on Our Platform. Join Us in Preserving Precious Resources and Building a Sustainable Future. </h1>
+      <img src={ribbon} alt="decoration" className="md:w-96  w-[300px] mt-8" />
+      </div>
+      <Footer/>
     </div>
     
     </>

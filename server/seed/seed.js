@@ -1,7 +1,7 @@
-// backend/dbConfig/seed.js
+// server/seed/seeds.js
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import Product from '../models/Product.js';
+import Product from '../models/Product.js'; // Adjust this if the path is different
 
 // Load environment variables
 dotenv.config();
@@ -10,7 +10,7 @@ const seedData = [
     {
         _id: "64df3aec4180b81adfe41d32",
         title: "Neo Water Flow Restrictors (NFR)- 3 to 4LPM",
-        image: "public/image978.png",
+        image: "public/image974.png", // Updated path
         price: 299,
         discountedPrice: 165,
         verified: true,
@@ -20,7 +20,7 @@ const seedData = [
     {
         _id: "64df39704180b81adfe41d0b",
         title: "Anti-Theft Shell Tap Adapter 3 LPM (Pack of 2)",
-        image: "public/image979.png",
+        image: "public/image974.png", // Updated path
         price: 299,
         discountedPrice: 165,
         verified: true,
@@ -30,7 +30,7 @@ const seedData = [
     {
         _id: "64df39704180b81adfe41d0c",
         title: "AirOxy 3 Function Shower Head",
-        image: "public/image976.png",
+        image: "public/image974.png", // Updated path
         price: 299,
         stock: 10,
         verified: true,
@@ -39,7 +39,7 @@ const seedData = [
     {
         _id: "64df39704180b81adfe41d0d",
         title: "Dual flow chrome finish jet and eco flow aerator",
-        image: "public/image974.png",
+        image: "public/image974.png", // Updated path
         price: 299,
         discountedPrice: 165,
         verified: false,

@@ -1,11 +1,10 @@
 import './App.css'
 import { Outlet,Navigate,Route,Routes,useLocation,useParams} from 'react-router-dom';
-
-import {Home,Product,Login,ResetPassword,Profile,Register,WaterCalculator} from './pages';
+import {dummyUser} from "./assets/data"
+import {Home,Product,Login,ResetPassword,Profile,Register,WaterCalculator,Cart} from './pages';
 function Layout(){
-    const user=null;
+    const user=dummyUser;
     const location=useLocation()
-
     return user?.token ?(
         <Outlet/>
     ):(
@@ -18,8 +17,9 @@ function App() {
       
        <div className='w-full min-h-[100vh]'>
        <Routes>
-       <Route elements={<Layout/>}>
+       <Route element={<Layout/>}>
          <Route path='/profile/:id?' element={<Profile />}/>
+         <Route path='/cart/:id?' element={<Cart  />}/>
        </Route>
        
        <Route path='/'element={<Home />}/>
