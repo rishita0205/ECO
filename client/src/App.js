@@ -1,9 +1,10 @@
 import './App.css'
 import { Outlet,Navigate,Route,Routes,useLocation,useParams} from 'react-router-dom';
-import {dummyUser} from "./assets/data"
+import { useSelector } from 'react-redux';
 import {Home,Product,Login,ResetPassword,Profile,Register,WaterCalculator,Cart} from './pages';
 function Layout(){
-    const user=dummyUser;
+    const user = useSelector((state) => state.user.user); 
+    console.log(user)
     const location=useLocation()
     return user?.token ?(
         <Outlet/>
@@ -18,8 +19,8 @@ function App() {
        <div className='w-full min-h-[100vh]'>
        <Routes>
        <Route element={<Layout/>}>
-         <Route path='/profile/:id?' element={<Profile />}/>
-         <Route path='/cart/:id?' element={<Cart  />}/>
+         <Route path='/profile' element={<Profile />}/>
+         <Route path='/cart' element={<Cart  />}/>
        </Route>
        
        <Route path='/'element={<Home />}/>

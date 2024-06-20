@@ -11,16 +11,33 @@ export const fetchProducts = async () => {
   }
 };
 
+
+
 export const filterProducts = async () => {
   try {
     const response = await axios.get(`${API_URL}/products`);
-    const filteredProducts = response.data.filter(product => product.rating > 4);
+  
+    const filteredProducts = response.data.products.filter(product => product.rating > 4);
+  
     return filteredProducts;
   } catch (error) {
     console.error("There was an error fetching the products!", error);
     return [];
   }
 };
+
+export const filterProductsbyPage = async (page) => {
+  try {
+    const response = await axios.get(`${API_URL}/products`);
+    
+    const filteredProducts = response.data.products.filter(product => product.category === page);
+    return filteredProducts;
+  } catch (error) {
+    console.error("There was an error fetching the products!", error);
+    return [];
+  }
+};
+
 
 export const fetchProductById = async (id) => {
     try {

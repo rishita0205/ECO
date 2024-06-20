@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dummyUser } from "../assets/data";
 const initialState = {
-  user: JSON.parse(window?.localStorage.getItem("user")) ?? dummyUser,
+  user: JSON.parse(window?.localStorage.getItem("user")) ?? null,
   edit: false,
 };
 
@@ -31,7 +30,7 @@ export function UserLogin(user) {
   };
 }
 
-export function Logout() {
+export function UserLogout() {
   return (dispatch, getState) => {
     dispatch(logout());
   };

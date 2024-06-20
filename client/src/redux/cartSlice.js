@@ -3,23 +3,23 @@ import axios from 'axios';
 
 const API_URL = 'https://server-eco.onrender.com';
 
-// Fetch cart
+// Fetch cart items
 export const fetchCart = createAsyncThunk('cart/fetchCart', async (userId) => {
   const response = await axios.get(`${API_URL}/cart/${userId}`);
   return response.data;
 });
 
 // Add item to cart
-export const addItemToCart = createAsyncThunk('cart/addItemToCart', async ({ userId, product, quantity }) => {
+export const addItemToCart = createAsyncThunk('cart/addItemToCart', async ({  product, quantity }) => {
   const response = await axios.post(`${API_URL}/cart`, {
-    userId,
     productId: product._id,
     quantity,
   });
+  console.log(response.data);
   return response.data;
 });
 
-// Update item quantity
+// Update item quantity in cart
 export const updateItemInCart = createAsyncThunk('cart/updateItemInCart', async ({ userId, productId, quantity }) => {
   const response = await axios.put(`${API_URL}/cart`, {
     userId,
@@ -41,7 +41,8 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     items: [],
-    status: null,
+    status: 'idle',
+    error: null,
   },
   reducers: {
     clearCart: (state) => {
@@ -57,8 +58,9 @@ const cartSlice = createSlice({
         state.items = action.payload.items;
         state.status = 'succeeded';
       })
-      .addCase(fetchCart.rejected, (state) => {
+      .addCase(fetchCart.rejected, (state, action) => {
         state.status = 'failed';
+        state.error = action.error.message;
       })
       .addCase(addItemToCart.fulfilled, (state, action) => {
         state.items = action.payload.items;
@@ -66,6 +68,7 @@ const cartSlice = createSlice({
       .addCase(updateItemInCart.fulfilled, (state, action) => {
         state.items = action.payload.items;
       })
+      
       .addCase(removeItemFromCart.fulfilled, (state, action) => {
         state.items = action.payload.items;
       });
